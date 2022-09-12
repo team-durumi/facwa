@@ -1,15 +1,84 @@
 main:
-  - name: posts
-    url: /posts/
+  - name: 홈
+    url: /
+    weight: -120
+  - name: 영상탐색
+    url: /items
+    weight: -115
+  - name: 자료
+    url: /about
     weight: -110
-  - name: all
+    identifier: hero      
+  - name: 냉전평화연구센터
+    url: /about
+    weight: 1
+    parent: 소개
+  - name: 성공회대학교 동아시아연구소
+    url: http://ieas21.or.kr/en/
+    weight: 2
+    parent: 소개    
+  - name: 심포지움
+    url: /symposium-210327/
+    weight: 2
+    parent: 소개
+  - name: 성과
+    url: 
+    weight: -100
+  - name: 학술회의
     url: /posts/
     weight: 1
-    parent: posts
-  - name: featured posts
-    url: /posts/featured
+    parent: 성과
+  - name: 사업
+    url: /posts/
     weight: 2
-    parent: posts
-  - name: about
-    url: /about/
-    weight: -100
+    parent: 성과 
+  - name: 논문
+    url: /posts/
+    weight: 3
+    parent: 성과
+  - name: 책
+    url: /posts/
+    weight: 4
+    parent: 성과
+  - name: 컬렉션
+    url: 
+    weight: -80
+  - name: 태그
+    url: /tags/
+    weight: 6
+    parent: 컬렉션     
+  - name: 생산자
+    url: /creators/
+    weight: 2
+    parent: 컬렉션     
+  - name: 주제
+    url: /subjects/
+    weight: 3
+    parent: 컬렉션       
+  - name: 출처
+    url: /sources/
+    weight: 4
+    parent: 컬렉션     
+  - name: 장소
+    url: /venues/
+    parent: 컬렉션
+    weight: 5
+  - name: 콘텐츠
+    url: 
+    weight: -70
+  - name: 영상쇼츠
+    url: /shorts
+    weight: 1
+    parent: 콘텐츠
+  - name: 전시
+    url: /exhibitions
+    weight: 2
+    parent: 콘텐츠
+
+button:
+- name: 탐색
+  url: /items
+  weight: -100
+- name: 검색
+  url: /search
+  weight: -90 

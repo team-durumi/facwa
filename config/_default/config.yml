@@ -1,5 +1,23 @@
-# https://gohugo.io/getting-started/configuration/
+title: 냉전아시아 영상아카이브
+baseURL: https://ccwps.org
 
-title: Hugo project
-languageCode: en-us
+languageCode: ko-kr
+defaultContentLanguage: ko
 hasCJKLanguage: true
+paginate: 16
+
+build:
+  writeStats: true
+
+permalinks:
+  items: /:section/:slug/
+
+googleAnalytics:
+
+taxonomies:
+  tag: tags
+  subject: subjects
+  creator: creators
+  venue: venues
+  source: sources
+  category: categories

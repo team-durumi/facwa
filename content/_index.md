@@ -1,11 +1,13 @@
 ---
-title: 환영합니다?
-description: 첫화면인데요?
+title: 홈
+description: 냉전아시아 영상아카이브
 ---
 
-첫 화면은 어떻게 구성할까요?
+{{< partial "marketing/elements/header-scroll.html" >}}
+{{< partial "marketing/sections/carousel-hero.html" >}}
+{{< partial "marketing/sections/hero.html" >}}
+{{< partial "marketing/sections/card.html" >}}
+{{< partial "marketing/sections/faqs.html" >}}
+{{< partial "marketing/sections/gallery.html" >}}
 
-```bash
-layout/index.html
-{{ `<!-- /index.html  -->` | safeHTML }}
-```
+{{< partial "marketing/elements/footer.html" >}}

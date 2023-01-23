@@ -1,11 +1,9 @@
 ---
-title: "[심포지엄]영상으로 본 냉전아시아의 사상심리전과 정동"
-date: 2022-09-01
+title: "[사업]2017-2018년 통영시 근현대 건조물 문헌 및 현장 조사 사업 참여"
+date: 2017-12-31
 public_access_status: true
-categories: 
-  - "meetings"
-components: 
-  - "https://r2.ccwps.org/resize/R1-187.jpg"  
+categories:
+  - "projects"
 ---
 
 ## Data

@@ -30,15 +30,18 @@ carousel:
   enable: true
   bg: bg-gray-900
   listItem:
-  - src: https://r2.ccwps.org/resize/R2-Scanned000016.jpg
-    alt: 'test carousel slide explain images'
-    caption: '냉전아시아 영상아카이브 슬라이드 1'
-  - src: https://r2.ccwps.org/resize/R2-Scanned000016.jpg
-    alt: '냉전아시아 영상아카이브'
-    caption: '냉전아시아 영상아카이브 슬라이드 2'
-  - src: https://r2.ccwps.org/resize/R2-Scanned000016.jpg
-    alt: '냉전아시아 영상아카이브'
-    caption: '냉전아시아 영상아카이브 슬라이드 3'
+  - src: /img/R2-Scanned000016.jpg
+    alt: '시리즈 - DMZ & MDR'
+    caption: '시리즈 - DMZ & MDR'
+    url : "/items/r2-dmz판문점/s2-dmzmdr/"
+  - src: /img/R1-013_1.jpg
+    alt: '한국 전쟁 RG- 포로, 수용소, 피난민, 학살, 일상'
+    caption: '한국 전쟁 RG- 포로, 수용소, 피난민, 학살, 일상'
+    url: "/items/r1-한국전쟁/"
+  - src: /img/comfortwomen-02.JPG
+    alt: '일본군 위안부 관련 증거 영상 발굴'
+    caption: '일본군 위안부 관련 증거 영상 발굴'
+    url : "/items/r3-일본군위안부/"
 
 
 ##################### hero-right/left ########################
@@ -53,7 +56,7 @@ hero:
   subtitle: 초기 YWCA 지도자
   content: |
     <영상으로 본 냉전아시아의 사상심리전과 정동> 미군의 한국전쟁 및 냉전 영상을 중심으로. 일시 - 2021년 3월 27일(토) 13시-18시20분
-  image : https://private.textconsulting.io/red-bg.jpg
+  image : https://r2.ccwps.org/resize/comfortwomen-01.png
   # button
   button:
     buttonLeft:
@@ -69,28 +72,26 @@ hero:
 ############# 1-column / 3-column / 4-column ###############
 card:
   layout: 3-column
-  bg: bg-white
-  category: 100주년 기념
+  bg: bg-gray-300
+  category: 영상으로 본 냉전아시아의 사상심리전과 정동 심포지움
   title: 프로젝트 소개
   enable: true
   content: 미국 국립문서기록관리청(NARA) 2관에는 한국, 북한, 그리고 아시아의 분단과 냉전, 전쟁을 주제로 군인 및 민간인(신문·잡지사, 영화사 등 소속) 스틸사진가나 영상 카메라맨이 촬영하고 제작한 사진과 영상물들이 다수 존재한다. 사진의 경우, 미군 스틸사진병 뿐 아니라 유명한 포토저널리즘 잡지사 소속 사진가들이 촬영한 사진들이 미육군통신대와 미공보원 레코드그룹(RG) 등에 대량으로 존재하는데, 전쟁과 군 관련 피사체는 물론 한국과 아시아(일본, 대만, 필리핀 등)의 냉전 사회 및 일상의 풍경을 포착하고 있다. 영상의 경우, 미군 영상카메라맨을 포함해 미국 영화사들이 촬영 제작한 자유진영의 반공 발전 심리전 영상물들이 다수 존재한다. 또한 미국 NARA 2관에는 한반도의 해방 이후 한국전쟁 전까지 북한과 소련에서 촬영한 사진과 영상 자료들도 다수 존재함. 한국전쟁 때 미군이 북한을 점령했을 때 노획한 자료들임. 북한이 해방 후 제작한 다큐 및 극 영화 자료들도 있다. 본 심포지엄에서는 이 시각자료들의 생산 및 관리 맥락을 확인할 수 있는 관련 문서 자료들도 조사 분석해서, 분단-냉전의 사상심리전과 정동의 차원에서 다룬다.
   listItem:
+
     - category : 1부
       title : 임재근
       description : (합본)교량과 철도 파괴의 사각과 정동 - 한국전쟁 대전 관련 영상을 중심으로 
-      component : https://www.youtube.com/embed/KfEK6p824o0
-      image: https://img.youtube.com/vi/RrGD5twLajI/sddefault.jpg
+      image : https://img.youtube.com/vi/KfEK6p824o0/sddefault.jpg
       date: 2021.03.27
       identifier: ccwps-01
       author: 임재근
       creator: ADC 8207, ADC 8105, ADC 812, 1ADC 8373, ADC 8401 - RG111
       url : https://www.youtube.com/embed/KfEK6p824o0
-
     - category : 1부
       title : 한국 문산 리틀 스위치 작전(OPERATION LITTLE SWITCH, LITTLE SWAP, TRAIN ENROUTE TO MUNSAN-NI, KOREA)
       description : 이 영상은 1953년 4월 24일 부산에서 대구를 거쳐 문산역으로 가는 열차에서 북한인민군 부상포로 송환과 자유의 마을에 설치된 포로 인수센터 등을 보여주고 있다. 1953년 4월 20일부터 부상포로 교환이 시작되었는데 매일 부산에서 출발해 대구를 거쳐 영등포와 문산역으로 향하고 있다. 부상포로들은 열차에서 쉬면서 주변 풍경들을 보는 장면이 이채롭다. 이들은 대구역에서 잠시 쉬었다가 영등포역을 거쳐 문산역으로 향했다. 영상에는 문산역에서 대성동 자유의 마을까지 가는 과정을 보여주고 포로교환의 중요한 포인터인 인수본부와 주변 시설들을 담아내고 있다. 또한 거제도나 제주도에서 부상포로가 부산항으로 들어오는 과정을 마지막에 나온다. 이 영상은 편집되지 않은 것이다. 
-      component : https://www.youtube.com/embed/SK0CF9j-uSc
-      image: https://img.youtube.com/vi/RrGD5twLajI/sddefault.jpg
+      image : https://img.youtube.com/vi/SK0CF9j-uSc/sddefault.jpg
       date: 1953.04.24
       identifier: ccwps-02
       author: 김일환
@@ -100,8 +101,7 @@ card:
     - category : 1부
       title : 리틀스위치, 한국군 제5 이동식외과병원, 문산리 LITTLE SWITCH, 5TH ROK MASH, MUNSAN-NI, KOREA
       description : 1953년 4월 24일 문산 판문점에서 부상포로들이 교환되는 과정을 보여주고 있다. 특히 이 영상에서는 리틀스위치 작전에서 남한측으로 송환된 국군 포로들의 실내에서의 심문, 식사 등의 절차들을 담고 있다는 점에 특징적이다.
-      component : https://www.youtube.com/embed/E_twoRhPk3M
-      image: https://private.textconsulting.io/red-bg.jpg
+      image : https://img.youtube.com/vi/E_twoRhPk3M/sddefault.jpg
       date: 1953.04.25
       identifier: ccwps-03
       author: 김일환
@@ -111,8 +111,7 @@ card:
     - category : 1부
       title : 빅 스위치, 문산리, 판문점 BIG SWITCH, MUNSAN-NI AND PANMUNJOM, KOREA
       description : 이 영상에서는 1953년 8월의 빅스위치 작전의 8월 6일자 작전의 모습을 보여준다. 
-      component : https://www.youtube.com/embed/t9SoEBrc-Io
-      image: https://img.youtube.com/vi/RrGD5twLajI/sddefault.jpg
+      image : https://img.youtube.com/vi/t9SoEBrc-Io/sddefault.jpg
       date: 2021.03.27
       identifier: ccwps-04
       author: 김일환
@@ -122,8 +121,7 @@ card:
     - category : 1부
       title : 한국 포항, 복원작전(한국군이 석방한 북한군 포로)(OPERATION RECOVERY (RELEASE OF NORTH KOREAN SOLDIERS WHO WERE TAKEN PRISONERS OF WAR BY THE SOUTH KOREAN ARMY), POHANG DONG, KOREA)
       description : 1954년 1월 21일 판문점에서 석방된 미송환포로들이 포항 신병훈련소에 입영하는 모습을 보여주고 있다. 
-      component : https://www.youtube.com/embed/MXPOgefJSqE
-      image: https://img.youtube.com/vi/RrGD5twLajI/sddefault.jpg
+      image : https://img.youtube.com/vi/MXPOgefJSqE/sddefault.jpg
       date: 2021.01.21 - 2021.01.23
       identifier: ccwps-05
       author: 김일환
@@ -133,8 +131,7 @@ card:
     - category : 2부
       title : 전갑생
       description : (합본)미군의 북한 영상 노획과 심리전 영화 제작 The Big Lie와 The Big Picture를 중심으로
-      component : https://www.youtube.com/embed/lwC9uGzHgb4
-      image: https://img.youtube.com/vi/RrGD5twLajI/sddefault.jpg
+      image : https://img.youtube.com/vi/lwC9uGzHgb4/sddefault.jpg
       date: 1951 - 1953
       identifier: ccwps-06
       author: 전갑생
@@ -144,8 +141,7 @@ card:
     - category : category
       title : 강성현 1
       description : 한국전쟁 영상 자료, 어떻게 연구할 것인가
-      component : https://www.youtube.com/embed/7nYimlOROoE
-      image: https://img.youtube.com/vi/RrGD5twLajI/sddefault.jpg
+      image : https://img.youtube.com/vi/7nYimlOROoE/sddefault.jpg
       date: 2021.03.27
       identifier: ccwps-07
       author: 강성현
@@ -155,8 +151,7 @@ card:
     - category : category
       title : 강성현 2
       description : 한국전쟁 영상 자료, 어떻게 연구할 것인가
-      component : https://www.youtube.com/embed/zVsYPsGNDho
-      image: https://img.youtube.com/vi/RrGD5twLajI/sddefault.jpg
+      image : https://img.youtube.com/vi/zVsYPsGNDho/sddefault.jpg
       date: 2021.03.27
       identifier: ccwps-08
       author: 강성현
@@ -166,8 +161,7 @@ card:
     - category : category
       title : 강성현 3
       description : 한국전쟁 영상 자료, 어떻게 연구할 것인가
-      component : https://www.youtube.com/embed/kxy8DDZyLT4
-      image: https://img.youtube.com/vi/RrGD5twLajI/sddefault.jpg
+      image : https://img.youtube.com/vi/kxy8DDZyLT4/sddefault.jpg
       date: 2021.03.27
       identifier: ccwps-09
       author: 강성현
@@ -177,128 +171,19 @@ card:
     - category : 2부
       title : 정영신
       description : 미군의 대한원조 영상 속에서 재건되는 전후 주체 The Big Picture 시리즈의 대한원조 영상을 중심으로
-      component : https://www.youtube.com/embed/mmH1yYhYhis
-      image: https://img.youtube.com/vi/RrGD5twLajI/sddefault.jpg
+      image : https://img.youtube.com/vi/mmH1yYhYhis/sddefault.jpg
       date: 2021.03.27
       identifier: ccwps-10
       author: 정영신
       creator: 합본, NARA
       url : https://www.youtube.com/embed/mmH1yYhYhis    
 
-############################ featured-items ##########################
-featuredItems:
-  category : 영상으로 본 냉전아시아의 사상심리전과 정동
-  title : 발표 합본 영상
-  enable : true
-  content : 미국 국립문서기록관리청(NARA) 2관에는 한국, 북한, 그리고 아시아의 분단과 냉전, 전쟁을 주제로 군인 및 민간인(신문·잡지사, 영화사 등 소속) 스틸사진가나 영상 카메라맨이 촬영하고 제작한 사진과 영상물들이 다수 존재한다. 사진의 경우, 미군 스틸사진병 뿐 아니라 유명한 포토저널리즘 잡지사 소속 사진가들이 촬영한 사진들이 미육군통신대와 미공보원 레코드그룹(RG) 등에 대량으로 존재하는데, 전쟁과 군 관련 피사체는 물론 한국과 아시아(일본, 대만, 필리핀 등)의 냉전 사회 및 일상의 풍경을 포착하고 있다. 영상의 경우, 미군 영상카메라맨을 포함해 미국 영화사들이 촬영 제작한 자유진영의 반공 발전 심리전 영상물들이 다수 존재한다. 또한 미국 NARA 2관에는 한반도의 해방 이후 한국전쟁 전까지 북한과 소련에서 촬영한 사진과 영상 자료들도 다수 존재함. 한국전쟁 때 미군이 북한을 점령했을 때 노획한 자료들임. 북한이 해방 후 제작한 다큐 및 극 영화 자료들도 있다. 본 심포지엄에서는 이 시각자료들의 생산 및 관리 맥락을 확인할 수 있는 관련 문서 자료들도 조사 분석해서, 분단-냉전의 사상심리전과 정동의 차원에서 다룬다.
-  listItem:
-
-    - category : 1부
-      title : 임재근
-      description : (합본)교량과 철도 파괴의 사각과 정동 - 한국전쟁 대전 관련 영상을 중심으로 
-      component : https://www.youtube.com/embed/KfEK6p824o0
-      date: 2021.03.27
-      identifier: ccwps-01
-      author: 임재근
-      creator: ADC 8207, ADC 8105, ADC 812, 1ADC 8373, ADC 8401 - RG111
-      url : https://www.youtube.com/embed/KfEK6p824o0
-
-    - category : 1부
-      title : 한국 문산 리틀 스위치 작전(OPERATION LITTLE SWITCH, LITTLE SWAP, TRAIN ENROUTE TO MUNSAN-NI, KOREA)
-      description : 이 영상은 1953년 4월 24일 부산에서 대구를 거쳐 문산역으로 가는 열차에서 북한인민군 부상포로 송환과 자유의 마을에 설치된 포로 인수센터 등을 보여주고 있다. 1953년 4월 20일부터 부상포로 교환이 시작되었는데 매일 부산에서 출발해 대구를 거쳐 영등포와 문산역으로 향하고 있다. 부상포로들은 열차에서 쉬면서 주변 풍경들을 보는 장면이 이채롭다. 이들은 대구역에서 잠시 쉬었다가 영등포역을 거쳐 문산역으로 향했다. 영상에는 문산역에서 대성동 자유의 마을까지 가는 과정을 보여주고 포로교환의 중요한 포인터인 인수본부와 주변 시설들을 담아내고 있다. 또한 거제도나 제주도에서 부상포로가 부산항으로 들어오는 과정을 마지막에 나온다. 이 영상은 편집되지 않은 것이다. 
-      component : https://www.youtube.com/embed/SK0CF9j-uSc
-      date: 1953.04.24
-      identifier: ccwps-02
-      author: 김일환
-      creator: RG 111-LC-32406, NARA
-      url : https://www.youtube.com/embed/SK0CF9j-uSc    
-
-    - category : 1부
-      title : 리틀스위치, 한국군 제5 이동식외과병원, 문산리 LITTLE SWITCH, 5TH ROK MASH, MUNSAN-NI, KOREA
-      description : 1953년 4월 24일 문산 판문점에서 부상포로들이 교환되는 과정을 보여주고 있다. 특히 이 영상에서는 리틀스위치 작전에서 남한측으로 송환된 국군 포로들의 실내에서의 심문, 식사 등의 절차들을 담고 있다는 점에 특징적이다.
-      component : https://www.youtube.com/embed/E_twoRhPk3M
-      date: 1953.04.25
-      identifier: ccwps-03
-      author: 김일환
-      creator: RG 111-LC-32529, NARA
-      url : https://www.youtube.com/embed/E_twoRhPk3M
-
-    - category : 1부
-      title : 빅 스위치, 문산리, 판문점 BIG SWITCH, MUNSAN-NI AND PANMUNJOM, KOREA
-      description : 이 영상에서는 1953년 8월의 빅스위치 작전의 8월 6일자 작전의 모습을 보여준다. 
-      component : https://www.youtube.com/embed/t9SoEBrc-Io
-      date: 2021.03.27
-      identifier: ccwps-04
-      author: 김일환
-      creator: RG 111-LC-33737, NARA
-      url : https://www.youtube.com/embed/t9SoEBrc-Io
-
-    - category : 1부
-      title : 한국 포항, 복원작전(한국군이 석방한 북한군 포로)(OPERATION RECOVERY (RELEASE OF NORTH KOREAN SOLDIERS WHO WERE TAKEN PRISONERS OF WAR BY THE SOUTH KOREAN ARMY), POHANG DONG, KOREA)
-      description : 1954년 1월 21일 판문점에서 석방된 미송환포로들이 포항 신병훈련소에 입영하는 모습을 보여주고 있다. 
-      component : https://www.youtube.com/embed/MXPOgefJSqE
-      date: 2021.01.21 - 2021.01.23
-      identifier: ccwps-05
-      author: 김일환
-      creator: RG 1111-LC-34807, NARA
-      url : https://www.youtube.com/embed/MXPOgefJSqE    
-
-    - category : 2부
-      title : 전갑생
-      description : (합본)미군의 북한 영상 노획과 심리전 영화 제작 The Big Lie와 The Big Picture를 중심으로
-      component : https://www.youtube.com/embed/lwC9uGzHgb4
-      date: 1951 - 1953
-      identifier: ccwps-06
-      author: 전갑생
-      creator: RG 306-LSS-1627,RG 111-TV-255, RG 306-2781
-      url : https://www.youtube.com/embed/lwC9uGzHgb4
-
-    - category : category
-      title : 강성현 1
-      description : 한국전쟁 영상 자료, 어떻게 연구할 것인가
-      component : https://www.youtube.com/embed/7nYimlOROoE
-      date: 2021.03.27
-      identifier: ccwps-07
-      author: 강성현
-      creator: 111-ADC-8082, NARA
-      url : https://www.youtube.com/embed/7nYimlOROoE
-
-    - category : category
-      title : 강성현 2
-      description : 한국전쟁 영상 자료, 어떻게 연구할 것인가
-      component : https://www.youtube.com/embed/zVsYPsGNDho
-      date: 2021.03.27
-      identifier: ccwps-08
-      author: 강성현
-      creator: 111-ADC-8517, NARA
-      url : https://www.youtube.com/embed/zVsYPsGNDho
-
-    - category : category
-      title : 강성현 3
-      description : 한국전쟁 영상 자료, 어떻게 연구할 것인가
-      component : https://www.youtube.com/embed/kxy8DDZyLT4
-      date: 2021.03.27
-      identifier: ccwps-09
-      author: 강성현
-      creator: 111-LC-29589, NARA
-      url : https://www.youtube.com/embed/kxy8DDZyLT4
-
-    - category : 2부
-      title : 정영신
-      description : 미군의 대한원조 영상 속에서 재건되는 전후 주체 The Big Picture 시리즈의 대한원조 영상을 중심으로
-      component : https://www.youtube.com/embed/mmH1yYhYhis
-      date: 2021.03.27
-      identifier: ccwps-10
-      author: 정영신
-      creator: 합본, NARA
-      url : https://www.youtube.com/embed/mmH1yYhYhis
-
 ############################ faqs ##########################
 faq:
   title : 자주 묻는 질문
   enable : true
   content : 자주 묻는 질문들을 모아놓았습니다. 궁금증을 해소하세요.
-  url : http://ccwps.org
+  url : https://facwa.kr
   listItem:
 
     - question : 냉전평화연구센터의 설립 목적
@@ -405,3 +290,71 @@ cta:
     enable : true
     label : 냉전평화연구센터 소개보기
     url : http://ieas21.or.kr/%ec%97%b0%ea%b5%ac%ec%86%8c-%ec%86%8c%ea%b0%9c/%eb%83%89%ec%a0%84%ed%8f%89%ed%99%94%ec%97%b0%ea%b5%ac%ec%84%bc%ed%84%b0/
+
+############################ feature-projects ##########################
+featureProjects:
+  bg: bg-white
+  category :
+  title : 
+  enable : true
+  content :
+  listItem:
+    - category : 링크
+      topMargin: content-start
+      title : RG-01
+      description : 활동소식
+      image : https://r2.ccwps.org/resize/R1-007.jpg
+      buttonLabel : 활동 소식 보러가기
+      buttonUrl : https://ywca.or.kr/activity/100th/?tab=news
+    - category : 링크
+      topMargin: content-end
+      title : RG-02
+      description : 관련자료
+      image : https://r2.ccwps.org/resize/R1-007.jpg
+      buttonLabel : 관련 자료 보러가기
+      buttonUrl : https://ywca.or.kr/activity/100th/?tab=reference
+    - category : 링크
+      topMargin: content-end
+      title : RG-03
+      description : 관련자료
+      image : https://r2.ccwps.org/resize/R1-007.jpg
+      buttonLabel : 관련 자료 보러가기
+      buttonUrl : https://ywca.or.kr/activity/100th/?tab=reference      
+
+##################### custom/feature-program ########################
+featureProgram:
+  enable: true
+  category: 기념 프로그램
+  title: 전체 자료
+  bg: bg-gray-100
+  bgImage:
+  subtitle:
+  content: (진행사업)통영 추봉도와 용호도 포로수용소 종합정비계획 수립 용역(통영시)(2021.2-2021.12)  / (완료사업)2
+  youtube: https://www.youtube.com/embed/kxtTh8vpTsY
+  image: https://img.youtube.com/vi/kxtTh8vpTsY/sddefault.jpg
+  # 기념 프로그램
+  listTitle: 100주년 기념 프로그램
+  listItem:
+    - title: 기념식
+      description: 기념식
+    - title: 특강
+      description: 특강
+    - title: 포럼
+      description: 포럼
+    - title: 감사축제
+      description: 감사축제
+    - title: 100개의 프로젝트
+      description: 100개의 프로젝트
+  # button
+  button:
+    enable: true
+    label: 자세히 보기
+    url: /aniversary-promotions
+
+############################ featured-No ##########################
+featuredNumbers:
+  enable : true
+  title : 냉전평화연구센터 디지털아카이브 
+  subtitle : items 공개현황
+  content : 2021년 현재 아카이브는 아래와 같은 아이템 및 연관 콘텐츠를 제공하고 있습니다. 2021년 냉전평화연구센터가 수집한 한국전쟁 / DMZ 관련된 영상 아이템을 중심으로 오픈합니다.
+  image : https://r2.ccwps.org/resize/R1-007.jpg

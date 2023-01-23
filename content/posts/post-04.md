@@ -1,11 +1,9 @@
 ---
-title: "[심포지엄]영상으로 본 냉전아시아의 사상심리전과 정동"
-date: 2022-09-01
+title: "[사업]통영 추봉도와 용호도 포로수용소 종합정비계획 수립 용역(통영시)"
+date: 2021-12-31
 public_access_status: true
-categories: 
-  - "meetings"
-components: 
-  - "https://r2.ccwps.org/resize/R1-187.jpg"  
+categories:
+  - "projects"
 ---
 
 ## Data

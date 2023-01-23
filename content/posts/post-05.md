@@ -1,11 +1,9 @@
 ---
-title: "[심포지엄]영상으로 본 냉전아시아의 사상심리전과 정동"
-date: 2022-09-01
+title: "[연구]파주 DMZ 및 접경지역 국외자료조사 해제연구"
+date: 2021-08-01
 public_access_status: true
 categories: 
-  - "meetings"
-components: 
-  - "https://r2.ccwps.org/resize/R1-187.jpg"  
+  - "articles"
 ---
 
 ## Data

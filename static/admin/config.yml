@@ -18,8 +18,11 @@ collections:
       - label: Title
         name: title
         widget: string
-      - label: Summary
-        name: summary
+      - label: description
+        name: description
+        widget: string
+      - lable: shotlist
+        name: shotlist
         widget: string
       - label: "사진이미지(목록)"
         name: "components"

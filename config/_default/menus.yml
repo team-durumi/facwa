@@ -1,45 +1,47 @@
+# https://gohugo.io/content-management/menus/#params
+# identifier params for header scrolling
 main:
-  - name: 홈
-    url: /
-    weight: -120
-  - name: 영상탐색
-    url: /items
-    weight: -115
-  - name: 자료
-    url: /about
+  - name: 소개
+    url:
     weight: -110
-    identifier: hero      
   - name: 냉전평화연구센터
     url: /about
     weight: 1
     parent: 소개
-  - name: 성공회대학교 동아시아연구소
-    url: http://ieas21.or.kr/en/
-    weight: 2
-    parent: 소개    
-  - name: 심포지움
-    url: /symposium-210327/
+  - name: 동아시아연구소
+    url: http://ieas21.or.kr/
     weight: 2
     parent: 소개
   - name: 성과
     url: 
     weight: -100
   - name: 학술회의
-    url: /posts/
+    url: /categories/meetings
     weight: 1
     parent: 성과
   - name: 사업
-    url: /posts/
+    url: /categories/projects
     weight: 2
     parent: 성과 
   - name: 논문
-    url: /posts/
+    url: /categories/articles
     weight: 3
     parent: 성과
   - name: 책
-    url: /posts/
+    url: /categories/books
     weight: 4
-    parent: 성과
+    parent: 성과                    
+  - name: 영상 탐색
+    url: 
+    weight: -90
+  - name: 탐색
+    url: /items
+    weight: 1
+    parent: 영상 탐색
+  - name: 검색
+    url: https://catalog.facwa.kr/
+    weight: 2
+    parent: 영상 탐색
   - name: 컬렉션
     url: 
     weight: -80
@@ -66,19 +68,7 @@ main:
   - name: 콘텐츠
     url: 
     weight: -70
-  - name: 영상쇼츠
-    url: /shorts
-    weight: 1
-    parent: 콘텐츠
-  - name: 전시
-    url: /exhibitions
-    weight: 2
-    parent: 콘텐츠
-
 button:
-- name: 탐색
-  url: /items
-  weight: -100
 - name: 검색
-  url: /search
-  weight: -90 
+  url: https://catalog.facwa.kr/
+  weight: -90

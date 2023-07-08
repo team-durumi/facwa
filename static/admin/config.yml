@@ -46,7 +46,7 @@ collections:
         allow_add: true            
     # adding a meta object with a path property allows editing the path of entries
     # moving an existing entry will move the entire sub tree of the entry to the new location
-    meta: { path: { widget: string, label: 'Path', index_file: '_index' } }
+    meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
   - name: 'post'
     label: 'Post'
     folder: 'content/posts'

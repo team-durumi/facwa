@@ -5,6 +5,7 @@ weight: 2
 type: page
 components: 
   - "/img/R2-Scanned000082.jpg"
+level_of_description: Seires(시리즈)
 description: "Series 2 DMZ&MDR"
 ---
 

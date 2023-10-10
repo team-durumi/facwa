@@ -24,6 +24,15 @@
 엑셀 slug : 904 / 공개 889 / 비공개 15
 
 - R1 한국전쟁 : 124 items 공개 (128 items)
+  - S1 포로, 수용소 : 102 items
+  - S2 피난민 : 6 items 
+  - S3 학살 : 8 items
+  - S4 일상 : 8 items
+
 - R2 R2 DMZ&판문점 : 55 items (66 items)
+  - S1 판문점 : 17 items
+  - S2 DMZ&MDR : 38 items
+
 - R3 R3 일본군 '위안부' : 6 items (slug 181- 186)
+
 - R4 빅픽처 : 704 items (slug 201-904 ) 

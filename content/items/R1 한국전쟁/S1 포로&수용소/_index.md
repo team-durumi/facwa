@@ -1,5 +1,5 @@
 ---
-lastmod: 2021-08-01
+lastmod: 2023-06-01
 title: S1 포로&수용소
 weight: 
 type: page
@@ -9,5 +9,4 @@ components:
 description: "Series 1 포로&수용소"
 ---
 
-S2 DMZ&MDR : 38 items 
-107 ~ 180 번대까지, 188번 제외
+102개 아이템

@@ -7,3 +7,6 @@ components:
   - "/img/R2-Scanned000082.jpg"
 description: "Series 2 DMZ&MDR"
 ---
+
+S2 DMZ&MDR : 38 items 
+107 ~ 180 번대까지, 188번 제외

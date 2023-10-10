@@ -1,9 +1,11 @@
 ---
-lastmod: 2021-11-12
+lastmod: 2023-06-01
 title: S1 판문점
-weight: 
+weight: 2
 type: page
 components: 
   - "/img/R2-Scanned000016.jpg"
 description: "R2-Series 1 판문점"
 ---
+
+test-item. md를 제외하고 17개 아이템을 추가합니다.

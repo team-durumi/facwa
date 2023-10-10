@@ -35,4 +35,14 @@
 
 - R3 R3 일본군 '위안부' : 6 items (slug 181- 186)
 
-- R4 빅픽처 : 704 items (slug 201-904 ) 
+- R4 빅픽처 : 704 items (slug 201-904 )
+
+## Production 관련
+- netlify 오류는 https://github.com/team-durumi/facwa/commit/d1e835648722dd48315f9cee1dc3e3dad1055a07
+- search catalog ENV 값에 build 값이 포함되어 있음.
+
+
+## 남은작업
+- UI
+- 보고서, shorts 관련
+- 번역 시도

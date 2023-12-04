@@ -4,49 +4,6 @@ backend:
 media_folder: static/img
 public_folder: /img
 collections:
-  - name: items
-    label: 아이템
-    label_singular: 'items'
-    folder: content/items
-    create: true
-    # adding a nested object will show the collection folder structure
-    nested:
-      depth: 100 # max depth to show in the collection tree
-      summary: '{{title}}' # optional summary for a tree node, defaults to the inferred title field
-    # item 모델 필드가 많아서, 초기 작성된 것 부터 작성해 나갑니다.
-    fields:
-      - label: Title
-        name: title
-        widget: string
-      - label: description
-        name: description
-        widget: string
-      - lable: shotlist
-        name: shotlist
-        widget: string
-      - label: "사진이미지(목록)"
-        name: "components"
-        widget: "list"
-        field: {label: Image, name: image, widget: string}
-      - label: "촬영자 creators"
-        name: "creators"
-        widget: "list"
-        allow_add: true
-      - label: "주제 subjects"
-        name: "subjects"
-        widget: "list"
-        allow_add: true     
-      - label: "생산기관(부대명) sources"
-        name: "sources"
-        widget: "list"
-        allow_add: true
-      - label: "생산장소 venues"
-        name: "venues"
-        widget: "list"
-        allow_add: true            
-    # adding a meta object with a path property allows editing the path of entries
-    # moving an existing entry will move the entire sub tree of the entry to the new location
-    meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
   - name: 'post'
     label: '성과 게시판'
     folder: 'content/posts'

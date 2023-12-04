@@ -1,17 +1,17 @@
 # https://gohugo.io/content-management/menus/#params
 # identifier params for header scrolling
 main:
-  - name: 소개
+  - name: 성공회대 냉전평화연구센터
     url:
     weight: -110
   - name: 냉전평화연구센터
     url: /about
     weight: 1
-    parent: 소개
+    parent: 성공회대 냉전평화연구센터
   - name: 동아시아연구소
     url: http://ieas21.or.kr/
     weight: 2
-    parent: 소개
+    parent: 성공회대 냉전평화연구센터
   - name: 성과
     url: 
     weight: -100

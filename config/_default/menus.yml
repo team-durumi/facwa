@@ -61,9 +61,6 @@ main:
     url: /venues/
     parent: 컬렉션
     weight: 5
-  - name: 콘텐츠
-    url: 
-    weight: -70
 button:
 - name: 검색
   url: https://catalog.facwa.kr/

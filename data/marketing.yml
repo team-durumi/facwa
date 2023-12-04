@@ -31,8 +31,8 @@ carousel:
   bg: bg-gray-900
   listItem:
   - src: /img/R2-Scanned000016.jpg
-    alt: '시리즈 - DMZ & MDR'
-    caption: '시리즈 - DMZ & MDR'
+    alt: '시리즈 - DMZ & 판문점'
+    caption: '시리즈 - DMZ & 판문점'
     url : "/items/r2-dmz판문점/s2-dmzmdr/"
   - src: /img/R1-013_1.jpg
     alt: '한국 전쟁 RG- 포로, 수용소, 피난민, 학살, 일상'

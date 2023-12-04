@@ -6,4 +6,5 @@ type: page
 level_of_description: Record Group(레코드그룹)
 components: 
   - "https://img.youtube.com/vi/UbhacaOJGJ0/sddefault.jpg"
+description: "The Big Picture"
 ---

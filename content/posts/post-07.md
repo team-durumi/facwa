@@ -2,8 +2,10 @@
 title: "[논문]미군 푸티지 영상으로 본 한국전쟁 포로교환과 그 이면"
 date: 2022-03-01
 public_access_status: true
-categories: 
-  - "articles"
+author: 냉전평화연구센터
+summary: 미군 푸티지 영상으로 본 한국전쟁 포로교환과 그 이면관련된 논문이다.
+categories:
+  - articles
 ---
 
 ## 저자

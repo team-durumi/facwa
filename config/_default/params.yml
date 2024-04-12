@@ -9,10 +9,10 @@ footerLogo: /img/facwa_logo.svg
 
 license:
   title_of_work: 성공회대학교 동아시아연구소 냉전평화연구센터
-  link_to_work: https://ccwps.org
+  link_to_work: 
   createor_of_work: 팀두루미
-  link_to_creator_profile: https://durumi.io
-  year_of_creation: 2022
+  link_to_creator_profile: https://github.com/team-durumi
+  year_of_creation: 2024
   
 footer:
   logo: /img/facwa_logo.svg

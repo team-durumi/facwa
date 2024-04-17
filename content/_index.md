@@ -3,7 +3,7 @@ title: 홈
 description: 냉전아시아 영상아카이브
 ---
 {{< partial "marketing/elements/header.html" >}}
-{{< partial "marketing/sections/carousel-hero.html" >}}
+{{< partial "marketing/customs/banner-slide.html" >}}
 
 {{< partial "marketing/customs/tags.html" >}}
 {{< partial "marketing/customs/feature-rg.html" >}}

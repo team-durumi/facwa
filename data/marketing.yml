@@ -30,18 +30,22 @@ carousel:
   enable: true
   bg: bg-gray-900
   listItem:
-  - src: /img/R2-Scanned000016.jpg
-    alt: '시리즈 - DMZ & 판문점'
-    caption: '시리즈 - DMZ & 판문점'
-    url : "/items/r2-dmz판문점/s2-dmzmdr/"
   - src: /img/R1-013_1.jpg
-    alt: '한국 전쟁 RG- 포로, 수용소, 피난민, 학살, 일상'
-    caption: '한국 전쟁 RG- 포로, 수용소, 피난민, 학살, 일상'
+    alt: 'RG1 - 한국전쟁'
+    caption: '포로, 수용소, 피난민, 학살, 일상'
     url: "/items/r1-한국전쟁/"
+  - src: /img/R2-Scanned000016.jpg
+    alt: 'RG2 - DMZ & 판문점'
+    caption:
+    url : "/items/r2-dmz판문점/s2-dmzmdr/"
   - src: /img/comfortwomen-02.JPG
-    alt: '일본군 위안부 관련 증거 영상 발굴'
+    alt: 'R3 일본군’위안부’'
     caption: '일본군 위안부 관련 증거 영상 발굴'
     url : "/items/r3-일본군위안부/"
+  - src: https://img.youtube.com/vi/22amrq9YZ-A/sddefault.jpg
+    alt: 'R4 빅 픽쳐'
+    caption: 'The Big Picture'
+    url : "/items/r4-빅-픽쳐/"    
 
 
 ##################### hero-right/left ########################

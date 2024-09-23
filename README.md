@@ -2,7 +2,7 @@
 
 ## front
 - facwa.kr
-- hugo v0.115.0+extended darwin/arm64 
+- hugo v0.134.3+extended darwin/arm64
 
 ## search-catalog
 - https://catalog.facwa.kr/
@@ -25,7 +25,7 @@
 
 - R1 한국전쟁 : 124 items 공개 (128 items)
   - S1 포로, 수용소 : 102 items
-  - S2 피난민 : 6 items 
+  - S2 피난민 : 6 items
   - S3 학살 : 8 items
   - S4 일상 : 8 items
 
@@ -43,3 +43,5 @@
 ## Production 관련
 - netlify 오류는 https://github.com/team-durumi/facwa/commit/d1e835648722dd48315f9cee1dc3e3dad1055a07
 - search catalog ENV 값에 build 값이 포함되어 있음.
+- opengraph 설정을 위해서 page의 개별 param값으로 사용하면 안 되는 항목(audio, video)
+- npm install issue

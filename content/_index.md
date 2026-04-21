@@ -1,6 +1,6 @@
 ---
 title: 홈
-description: 냉전아시아 영상아카이브
+description: 평화월딩영상아카이브
 ---
 {{< partial "marketing/elements/header.html" >}}
 {{< partial "marketing/customs/banner-slide.html" >}}

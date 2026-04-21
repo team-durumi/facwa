@@ -24,7 +24,7 @@
     <div x-ref="glide" class="container mx-auto glide block relative px-16">
         <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
-                {{ range .Site.Data.marketing.carousel.listItem }}
+                {{ range hugo.Data.marketing.carousel.listItem }}
                 <a href="{{ .url | absURL }}">
                     <li class="glide__slide flex flex-col items-center justify-center py-6">
                         <img class="h-96 w-full object-cover object-top" src="{{ .src | absURL }}" alt="placeholder image">

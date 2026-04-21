@@ -2,7 +2,9 @@
 
 ## front
 - facwa.kr
-- hugo v0.134.3+extended darwin/arm64
+- (last)hugo v0.143.1+extended+withdeploy darwin/arm64 BuildDate=2025-02-04T08:57:38Z VendorInfo=brew
+- 260422 / hugo v0.160.1+extended+withdeploy darwin/arm64
+
 
 ## search-catalog
 - https://catalog.facwa.kr/
@@ -45,3 +47,23 @@
 - search catalog ENV 값에 build 값이 포함되어 있음.
 - opengraph 설정을 위해서 page의 개별 param값으로 사용하면 안 되는 항목(audio, video)
 - npm install issue
+
+## 2026-04-22 로고 수정 전 업데이트
+### 1. 꼬인 모듈과 캐시 정리
+hugo mod clean
+hugo cache clean
+
+### 2. 서버 실행 / 휴고 버전 업
+hugo server --ignoreCache --disableFastRender
+hugo v0.160.1+extended+withdeploy darwin/arm64
+
+### 3.날짜
+날짜 관련 오류 886개 수정
+날짜 관련 형식은 하나로 지정되어 있지 않고, 범위를 나타내거나 특정일을 나타내는데, 모든 형식이 달라서 전체 수정(빌드오류)
+
+### 4.로고 수정 요청
+관련메 메인 텍스트 메뉴 전체 수정
+공지사항 관련 메뉴 삭제 (연구소로 이동)
+
+### 5.production 관련 수정
+버전 업데이트 발행 되는지 확인

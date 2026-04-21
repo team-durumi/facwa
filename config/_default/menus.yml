@@ -1,36 +1,17 @@
 # https://gohugo.io/content-management/menus/#params
 # identifier params for header scrolling
 main:
-  - name: 성공회대 냉전평화연구센터
+  - name: 성공회대학교 평화월딩연구소
     url:
     weight: -110
-  - name: 냉전평화연구센터
-    url: /about
+  - name: 평화월딩연구소
+    url: https://ipws.or.kr/
     weight: 1
-    parent: 성공회대 냉전평화연구센터
+    parent: 성공회대학교 평화월딩연구소
   - name: 동아시아연구소
     url: http://ieas21.or.kr/
     weight: 2
-    parent: 성공회대 냉전평화연구센터
-  - name: 성과
-    url: 
-    weight: -100
-  - name: 학술회의
-    url: /categories/meetings
-    weight: 1
-    parent: 성과
-  - name: 사업
-    url: /categories/projects
-    weight: 2
-    parent: 성과 
-  - name: 논문
-    url: /categories/articles
-    weight: 3
-    parent: 성과
-  - name: 책
-    url: /categories/books
-    weight: 4
-    parent: 성과                    
+    parent: 성공회대학교 평화월딩연구소                
   - name: 영상 탐색
     url: 
     weight: -90

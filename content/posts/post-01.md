@@ -1,6 +1,6 @@
 ---
 title: "[심포지엄] <영상으로 본 냉전아시아의 사상심리전과 정동>: 미군의 한국전쟁 및 냉전 영상을 중심으로"
-date: 2021-03-26T15:00:00.000Z
+date: 2021-03-26
 public_access_status: true
 categories:
   - meetings

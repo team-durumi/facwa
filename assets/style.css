@@ -65,16 +65,29 @@ html {
 }
 
 .facwa-header-logo {
+  display: inline-flex;
+  align-items: center;
   color: var(--theme-primary);
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.005em;
   text-decoration: none;
 }
 
 .facwa-header-logo:hover {
   color: var(--theme-primary-dark);
+}
+
+.facwa-header-logo__image {
+  display: block;
+  width: auto;
+  max-width: min(280px, 42vw);
+  height: 42px;
+  object-fit: contain;
+}
+
+.facwa-header-logo__text {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.005em;
 }
 
 .facwa-site-header {
@@ -139,6 +152,27 @@ html {
   text-decoration: none;
   transform: scale(1.025);
   transition: opacity 0.7s ease, transform 1.4s ease;
+  isolation: isolate;
+}
+
+.facwa-ww-slide__item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.38) 44%, rgba(0, 0, 0, 0.08) 78%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.14) 0%, rgba(0, 0, 0, 0.06) 18%, rgba(0, 0, 0, 0.28) 100%);
+  z-index: 0;
+}
+
+.facwa-ww-slide__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 35%, rgba(255, 255, 255, 0.14), transparent 28%),
+    radial-gradient(circle at 75% 20%, rgba(255, 255, 255, 0.08), transparent 22%);
+  z-index: 0;
 }
 
 .facwa-ww-slide__item.is-active {
@@ -159,11 +193,12 @@ html {
   position: relative;
   z-index: 2;
   padding: 0 40px 56px;
+  max-width: 1100px;
 }
 
 .facwa-ww-slide__eyebrow {
   margin: 0 0 14px;
-  color: var(--theme-primary);
+  color: rgba(255, 255, 255, 0.82);
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -173,20 +208,22 @@ html {
 .facwa-ww-slide h2 {
   max-width: 820px;
   margin: 0;
-  color: var(--theme-text);
+  color: #fff;
   font-size: clamp(44px, 7vw, 92px);
   font-weight: 800;
   letter-spacing: -0.045em;
   line-height: 0.98;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
 .facwa-ww-slide__description {
   max-width: 720px;
   margin: 22px 0 0;
-  color: var(--theme-text-subtle);
+  color: rgba(255, 255, 255, 0.90);
   font-size: clamp(18px, 2vw, 26px);
   font-weight: 400;
   line-height: 1.45;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
 .facwa-ww-slide__button {
@@ -195,8 +232,10 @@ html {
   justify-content: center;
   margin-top: 38px;
   border-radius: 999px;
-  background: var(--theme-primary);
-  color: var(--theme-surface);
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
   font-size: 16px;
   font-weight: 700;
   padding: 14px 26px;
@@ -204,7 +243,7 @@ html {
 }
 
 .facwa-ww-slide__item:hover .facwa-ww-slide__button {
-  background: var(--theme-primary-dark);
+  background: rgba(0, 0, 0, 0.72);
   transform: translateY(-2px);
 }
 
@@ -213,10 +252,10 @@ html {
   right: 40px;
   bottom: 36px;
   left: 40px;
-  z-index: 3;
+  z-index: 6;
   display: flex;
   justify-content: space-between;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .facwa-ww-slide__nav {
@@ -225,16 +264,20 @@ html {
   gap: 6px;
   border: 0;
   background: transparent;
-  color: var(--theme-primary);
+  color: rgba(255, 255, 255, 0.88);
   cursor: pointer;
   font-size: 15px;
   font-weight: 700;
   pointer-events: auto;
+  padding: 10px 12px;
+  border-radius: 999px;
+  touch-action: manipulation;
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .facwa-ww-slide__nav:hover {
-  color: var(--theme-primary-dark);
+  color: #fff;
+  background: rgba(0, 0, 0, 0.18);
 }
 
 .facwa-ww-slide__nav--prev:hover {
@@ -250,16 +293,21 @@ html {
   height: 24px;
 }
 
+.facwa-ww-slide__nav span {
+  line-height: 1;
+}
+
 .facwa-ww-slide__pagination {
   position: absolute;
   right: 0;
   bottom: 38px;
   left: 0;
-  z-index: 4;
+  z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  pointer-events: auto;
 }
 
 .facwa-ww-slide__dot {
@@ -267,7 +315,7 @@ html {
   height: 10px;
   border: 0;
   border-radius: 999px;
-  background: var(--theme-secondary);
+  background: rgba(255, 255, 255, 0.38);
   cursor: pointer;
   padding: 0;
   transition: background 0.2s ease, transform 0.2s ease, width 0.2s ease;
@@ -275,7 +323,7 @@ html {
 
 .facwa-ww-slide__dot.is-active {
   width: 30px;
-  background: var(--theme-primary);
+  background: #fff;
 }
 
 .facwa-section {
@@ -604,10 +652,9 @@ html {
 .facwa-footer__inner {
   display: grid;
   width: 100%;
-  max-width: 1170px;
   margin: 0 auto;
-  gap: 64px;
-  grid-template-columns: minmax(220px, 320px) 1fr;
+  gap: 88px;
+  grid-template-columns: minmax(240px, 340px) minmax(0, 1fr);
   padding: 80px 24px;
 }
 
@@ -632,12 +679,13 @@ html {
 
 .facwa-footer__nav {
   display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-content: start;
+  gap: 40px 56px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .facwa-footer__nav h2 {
-  margin: 0 0 20px;
+  margin: 0 0 22px;
   color: var(--theme-footer-text);
   font-size: 16px;
   font-weight: 600;
@@ -646,7 +694,7 @@ html {
 .facwa-footer__nav ul {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   margin: 0;
   padding: 0;
 }
@@ -657,8 +705,8 @@ html {
 
 .facwa-footer__nav a {
   color: var(--theme-text-muted);
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.7;
   text-decoration: none;
 }
 
@@ -669,7 +717,6 @@ html {
 .facwa-footer__bottom {
   display: flex;
   width: 100%;
-  max-width: 1170px;
   margin: 0 auto;
   gap: 24px;
   justify-content: space-between;
@@ -728,6 +775,11 @@ html {
 }
 
 @media (max-width: 767px) {
+  .facwa-header-logo__image {
+    height: 34px;
+    max-width: min(220px, 52vw);
+  }
+
   .facwa-ww-slide__viewport {
     min-height: 560px;
   }

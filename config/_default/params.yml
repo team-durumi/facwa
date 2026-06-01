@@ -5,7 +5,7 @@ images:
   - img/site-feature-image.png
 
 logo: /img/peace-worlding-film-archives-logo.png
-footerLogo: /img/peace-worlding-film-archives-logo.png
+footerLogo: /img/peace-worlding-film-archives-logo-footer.png
 
 license:
   title_of_work: 성공회대학교 평화월딩연구소
@@ -15,7 +15,7 @@ license:
   year_of_creation: 2026
 
 footer:
-  logo: /img/peace-worlding-film-archives-logo.png
+  logo: /img/peace-worlding-film-archives-logo-footer.png
   대표전화: 02-0000-0000
   팩스: 02-0000-0000
   주소: Somewhere in Seoul

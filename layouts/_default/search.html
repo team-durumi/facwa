@@ -94,5 +94,9 @@
 {{ end }}
 
 {{ define "footer" }}
+  {{ partial "marketing/elements/footer-wide.html" . }}
+{{ end }}
+
+{{ define "footerJs" }}
 <script src="{{ "js/search.js" | relURL }}" defer></script>
 {{ end }}

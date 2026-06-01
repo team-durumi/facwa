@@ -1,8 +1,10 @@
 <footer class="facwa-footer">
-  <div class="facwa-footer__inner">
+  <div class="site-container facwa-footer__inner">
     <div class="facwa-footer__brand">
       <a href="/" aria-label="{{ .Site.Title }}">
-        {{ if .Site.Params.logo }}
+        {{ if .Site.Params.footerLogo }}
+          <img src="{{ .Site.Params.footerLogo | absURL }}" alt="{{ .Site.Title }}">
+        {{ else if .Site.Params.logo }}
           <img src="{{ .Site.Params.logo | absURL }}" alt="{{ .Site.Title }}">
         {{ else }}
           <span>{{ .Site.Title }}</span>
@@ -27,7 +29,7 @@
     </nav>
   </div>
 
-  <div class="facwa-footer__bottom">
+  <div class="site-container facwa-footer__bottom">
     <p>© {{ .Site.Params.license.year_of_creation }} {{ .Site.Params.license.title_of_work }}</p>
     <p><a href="{{ .Site.Params.license.link_to_work }}" rel="noopener noreferrer" target="_blank">{{ .Site.Params.license.link_to_work }}</a></p>
     <p>Work With <a href="{{ .Site.Params.license.link_to_creator_profile }}" rel="noopener noreferrer" target="_blank">{{ .Site.Params.license.createor_of_work }}</a></p>

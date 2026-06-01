@@ -1,6 +1,6 @@
 {{ define "header" }}
 <header class="facwa-inquiry-header">
-  <a class="facwa-header-logo" href="/" aria-label="{{ .Site.Title }}">ArchiveJ</a>
+  {{ partial "marketing/elements/site-logo.html" . }}
   <nav class="facwa-inquiry-nav" aria-label="inquiry navigation">
     <a href="/">홈</a>
     <a class="is-active" href="/inquiry/">제품신청</a>
@@ -67,5 +67,9 @@
 {{ end }}
 
 {{ define "footer" }}
+  {{ partial "marketing/elements/footer-wide.html" . }}
+{{ end }}
+
+{{ define "footerJs" }}
 <script src="{{ "js/inquiry.js" | relURL }}" defer></script>
 {{ end }}

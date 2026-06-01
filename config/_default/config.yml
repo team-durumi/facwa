@@ -1,7 +1,7 @@
 title: 평화월딩영상아카이브
 baseURL: https://facwa.kr
 
-languageCode: ko-kr
+locale: ko-kr
 defaultContentLanguage: ko
 hasCJKLanguage: true
 paginate: 16

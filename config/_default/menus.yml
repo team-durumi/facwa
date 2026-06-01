@@ -11,38 +11,38 @@ main:
   - name: 동아시아연구소
     url: http://ieas21.or.kr/
     weight: 2
-    parent: 성공회대학교 평화월딩연구소                
+    parent: 성공회대학교 평화월딩연구소
   - name: 영상 탐색
-    url: 
+    url:
     weight: -90
   - name: 탐색
     url: /items
     weight: 1
     parent: 영상 탐색
   - name: 검색
-    url: https://catalog.facwa.kr/
+    url: /search
     weight: 2
     parent: 영상 탐색
   - name: 컬렉션
-    url: 
-    weight: -80    
+    url:
+    weight: -80
   - name: 촬영자
     url: /creators/
     weight: 2
-    parent: 컬렉션     
+    parent: 컬렉션
   - name: 주제
     url: /subjects/
     weight: 3
-    parent: 컬렉션       
+    parent: 컬렉션
   - name: 생산기관(부대명)
     url: /sources/
     weight: 4
-    parent: 컬렉션     
+    parent: 컬렉션
   - name: 생산장소
     url: /venues/
     parent: 컬렉션
     weight: 5
 button:
 - name: 검색
-  url: https://catalog.facwa.kr/
+  url: /search
   weight: -90

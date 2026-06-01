@@ -3,224 +3,273 @@
 {{ end }}
 
 {{ define "main" }}
-	<div class="flex flex-wrap -mb-4 md:mb-0">
-	  <div class="w-full md:w-1/4 px-5 py-5 mb-4 md:mb-0 text-gray-900 bg-gray-100 dark:text-gray-100 dark:bg-gray-800">
-	  	{{ partial "roll/browse/aside-default.html" . }}
-	  </div>
-	  <div class="w-full md:w-3/4 pt-5 pb-20 mb-4 md:mb-0 text-gray-900 bg-gray-100 dark:text-gray-100 dark:bg-gray-800">
-	  	{{ partial "roll/browse/breadcrumb.html" . }}
-	  	
-	    <!-- IDENTITY STATEMENT AREA | Summary Sections -->
-			<div class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 overflow-hidden sm:rounded-lg">
-			  <div class="px-5 py-5 sm:px-6">
-			    <h3 class="text-4xl leading-nomal font-medium py-5 mb-4">
-			      {{ .Title }} 
-			    </h3>
-			    <!-- Youtube / Vimeo -->
-			    {{ if .Params.link }}	
-			    	<iframe class="rounded px-1 w-full h-96 aspect-w-4 aspect-h-3 leading-normal
+  {{ $title := .Title }}
+  {{ $description := .Params.description | default .Params.Description }}
+  {{ $level := .Params.level_of_description | default .Params.Level_of_description }}
+  {{ $mediaType := .Params.media_type | default .Params.Media_type }}
+  {{ $link := .Params.link | default .Params.Link }}
+  {{ $media := .Params.media | default .Params.Media }}
+  {{ if and (not $mediaType) $media }}
+    {{ with index $media "type" }}{{ $mediaType = . }}{{ end }}
+  {{ end }}
+  {{ $components := .Params.components | default .Params.Components }}
+  {{ if and (not $components) $media }}
+    {{ with index $media "components" }}{{ $components = . }}{{ end }}
+  {{ end }}
+  {{ $pdfComponent := "" }}
+  {{ $imageComponent := "" }}
+  {{ range $components }}
+    {{ if and (eq $pdfComponent "") (hasSuffix (lower .) ".pdf") }}
+      {{ $pdfComponent = . }}
+    {{ end }}
+    {{ if and (eq $imageComponent "") (or (hasSuffix (lower .) ".jpg") (hasSuffix (lower .) ".jpeg") (hasSuffix (lower .) ".png") (hasSuffix (lower .) ".gif") (hasSuffix (lower .) ".webp") (hasSuffix (lower .) ".heic") (hasSuffix (lower .) ".tif") (hasSuffix (lower .) ".tiff")) }}
+      {{ $imageComponent = . }}
+    {{ end }}
+  {{ end }}
+  {{ $tags := .Params.tags | default .Params.Tags }}
+  {{ $creators := .Params.creators | default .Params.Creators }}
+  {{ $subjects := .Params.subjects | default .Params.Subjects }}
+  {{ $sources := .Params.sources | default .Params.Sources }}
+  {{ $venues := .Params.venues | default .Params.Venues }}
+  {{ $refCode := "" }}
+  {{ if and .Params.rg .Params.series .Params.file_number .Params.local_identifier }}
+    {{ $refCode = printf "%v-%v-%v-%v" .Params.rg .Params.series .Params.file_number .Params.local_identifier }}
+  {{ end }}
 
-					" src="{{ .Params.link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			    	<p class="px-2 mt-4">{{ .Params.shotlist }}</p>
-			    {{ else }}
-				    <!-- item IMG / PDF / Youtube -->
-				    <div class="mt-1 max-w-2xl">
-				    	{{ if .Params.components }}		
-				      	{{ range .Params.Components }}
-				      		<img class="h-full rounded w-full object-cover object-center mb-6" src="{{ . | absURL }}" alt="item object">
-				      	{{ end }}
-				    	{{ else }}
-				    		<img class="h-full rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/462x384" alt="item object">
-				    	{{ end }}
-				    </div>
-				{{ end }}
-			  </div>
-			  <!--  IDENTITY STATEMENT AREA -->
-			  <h2 class="text-2xl leading-6 font-medium px-5 py-1 mb-4">
-			  	IDENTITY
-			  </h2>
-			  <div class="border-t border-b border-gray-200 mb-4">
-			    <dl>
-			    	{{ if .Params.rg }}
-			      <div class="bg-gray-50 dark:bg-gray-800 px-5 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-			        <dt class="text-sm font-medium">
-			          Reference code(s)
-			        </dt>
-			        <dd class="mt-1 text-sm sm:mt-0 sm:col-span-2">
-			         {{ .Params.rg }}-{{ .Params.series }}-{{ .Params.file_number }}-{{ .Params.local_identifier }}
-			        </dd>
-			      </div>
-			      {{ end }}
-			      <!--  Title 은 최소 포함되어 있을것으로 판단 -->
-			      <div class="bg-white dark:bg-gray-900 px-5 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-			        <dt class="text-sm font-medium">
-			          Title
-			        </dt>
-			        <dd class="mt-1 text-sm sm:mt-0 sm:col-span-2">
-			          {{ .Title }}
-			        </dd>
-			      </div>
-			      {{ if .Date }}
-			      <div class="bg-gray-50 dark:bg-gray-800 px-5 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-			        <dt class="text-sm font-medium text-gray-500">
-			          Date(s)
-			        </dt>
-			        <dd class="mt-1 text-sm sm:mt-0 sm:col-span-2">
-			          {{ .Date }}
-			        </dd>
-			      </div>
-				    {{ end }}
-				    {{ if .Params.Level_of_description }}
-			      <div class="bg-white dark:bg-gray-900 px-5 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-			        <dt class="text-sm font-medium">
-			          Level of description
-			        </dt>
-			        <dd class="mt-1 text-sm sm:mt-0 sm:col-span-2">
-			          {{ .Params.Level_of_description }}
-			        </dd>
-			      </div>
-			      {{ end }}
-			      {{ if .Params.Media_type }}
-			      <div class="bg-gray-50 dark:bg-gray-800 px-5 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-			        <dt class="text-sm font-medium">
-			          Media Type
-			        </dt>
-			        <dd class="mt-1 text-sm sm:mt-0 sm:col-span-2">
-			          {{ .Params.Media_type }}
-			        </dd>
-			      </div>
-			      {{ end }}
-			      {{ if .Params.Description }}
-			      <div class="bg-white dark:bg-gray-900 px-5 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-			        <dt class="text-sm font-medium">
-			          Description
-			        </dt>
-			        <dd class="mt-1 text-sm sm:mt-0 sm:col-span-2">
-			          {{ .Params.Description }}
-			        </dd>
-			      </div>
-			      {{ end }}
-			      {{ if .Params.Link }}
-			      <div class="bg-gray-50 dark:bg-gray-800 px-5 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-			        <dt class="text-sm font-medium">
-			          Link
-			        </dt>
-			        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-			          <a href="{{ .Params.Link | absURL }}" class="font-medium text-blue-600 hover:text-blue-500 dark:text-blue-500 dark:hover:text-blue-600" target="_blank">{{ .Params.Link }}</a>
-			        </dd>
-			      </div>
-			      {{ end }}		
-			      {{ if .Params.components }}	     		   	      
-			      <div class="bg-white dark:bg-gray-900 px-5 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-			        <dt class="text-sm font-medium">
-			          Components
-			        </dt>
-			        <dd class="mt-1 mb-1 text-sm sm:mt-0 sm:col-span-2">
-			        	{{ range .Params.Components }}  
-			          <ul class="border border-gray-200 rounded-md divide-y divide-gray-200">
-			            <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
-			              <div class="w-0 flex-1 flex items-center">
-			                <!-- Heroicon name: solid/paper-clip -->
-			                <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-			                  <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd" />
-			                </svg>
-			                <span class="ml-2 flex-1 w-0 truncate">
-			                  {{ . }}
-			                </span>
-			              </div>
-			              <div class="ml-4 flex-shrink-0">
-			                <a href="{{ . | absURL }}" class="font-medium text-blue-600 hover:text-blue-500 dark:text-blue-500 dark:hover:text-blue-600" target="_blank" download >
-			                  Download
-			                </a>
-			              </div>
-			            </li>
-			          </ul>
-			          {{ end }} 
-			        </dd>
-			      </div>
-			      {{ else }}
-			      {{ end }}
-			    </dl>
-			  </div>
-			  <!--  CONTEXT & CONTENT & STRUCTURE -->
-			  <h2 class="text-2xl leading-6 font-medium px-5 py-1 mb-4">
-			  	CONTEXT
-			  </h2>
+  <section class="bg-[#f1f2f3] text-slate-900">
+    <div class="container px-4 pb-10 pt-5 lg:px-10">
+      <div class="grid gap-6 md:grid-cols-[30%_minmax(0,70%)] md:items-start">
+        <aside class="md:sticky md:top-[80px] md:max-h-[calc(100vh-100px)] md:self-start md:overflow-y-auto">
+          {{ partial "roll/browse/aside-default.html" . }}
+        </aside>
 
-			  <div class="border-t border-b border-gray-200 mb-4">
-			    <dl>
-			    	<!--  Tag는 생성된 최소 포함되어 있을것으로 판단 -->
-			      <div class="bg-gray-50 dark:bg-gray-800 px-5 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-			        <dt class="text-sm font-medium">
-			          Tags
-			        </dt>
-			        <dd class="mt-1 text-sm text-blue-600 dark:text-blue-500 sm:mt-0 sm:col-span-2">
-			         {{ range .Params.Tags }}
-			        	 <a href="/tags/{{ . }}">{{ . }}</a>
-			         {{ end }}	 
-			        </dd>
-			      </div>
-			      {{ if .Params.creators }}
-			      <div class="bg-white dark:bg-gray-900 px-5 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-			        <dt class="text-sm font-medium">
-			          Creators
-			        </dt>
-			        <dd class="mt-1 text-sm text-blue-600 dark:text-blue-500 sm:mt-0 sm:col-span-2">
-			         {{ range .Params.Creators }}
-			        	 <a href="/creators/{{ . }}">{{ . }}</a>
-			         {{ end }}		
-			        </dd>
-			      </div>
-			      {{ else }}
-			      {{ end }}			      
-			      {{ if .Params.subjects }}
-			      <div class="bg-gray-50 dark:bg-gray-800 px-5 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-			        <dt class="text-sm font-medium">
-			          Subjects
-			        </dt>
-			        <dd class="mt-1 text-sm text-blue-600 dark:text-blue-500 sm:mt-0 sm:col-span-2">
-			         {{ range .Params.Subjects }}
-			        	 <a href="/subjects/{{ . }}">{{ . }}</a>
-			         {{ end }}		
-			        </dd>
-			      </div>
-			      {{ else }}
-			      {{ end }}
-			      {{ if .Params.sources }}	
-			      <div class="bg-white dark:bg-gray-900 px-5 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-			        <dt class="text-sm font-medium">
-			          Sources
-			        </dt>
-			        <dd class="mt-1 text-sm text-blue-600 dark:text-blue-500 sm:mt-0 sm:col-span-2">
-			         {{ range .Params.Sources }}
-			        	 <a href="/sources/{{ . }}">{{ . }}</a>
-			         {{ end }}	
-			        </dd>
-			      </div>
-			      {{ else }}
-			      {{ end }}
-			      {{ if .Params.venues }}	
-			      <div class="bg-gray-50 dark:bg-gray-800 px-5 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-			        <dt class="text-sm font-medium">
-			          Venues 
-			        </dt>
-			        <dd class="mt-1 text-sm text-blue-600 dark:text-blue-500 sm:mt-0 sm:col-span-2">
-			         {{ range .Params.Venues }}
-			        	 <a href="/venues/{{ . }}">{{ . }}</a>
-			         {{ end }}	
-			        </dd>
-			      </div>
-			      {{ else }}
-			      {{ end }}
-			    </dl>
-			  </div>
-			</div>
-	  </div>	  
-		</div>
-		<!-- Related Contents Here -->
-	  </div>
-	</div>
+        <div class="min-w-0 space-y-4">
+          <div class="rounded-[8px] border border-slate-200 bg-white p-4 shadow-sm">
+            {{ partial "roll/browse/breadcrumb.html" . }}
+          </div>
+
+          <div class="rounded-[8px] border border-slate-200 bg-white p-5 shadow-sm">
+            <div class="flex flex-wrap items-start justify-between gap-4">
+              <div class="max-w-4xl">
+                <p class="text-xs font-semibold uppercase tracking-[0.24em] text-blue-600">Item Detail</p>
+                <h1 class="mt-3 text-3xl font-semibold leading-tight tracking-[0.01em] text-slate-900 lg:text-4xl">{{ $title }}</h1>
+                {{ with $description }}
+                  <p class="mt-4 max-w-3xl text-sm leading-7 text-slate-500 lg:text-base">{{ . }}</p>
+                {{ end }}
+              </div>
+              <div class="flex flex-wrap gap-2">
+                {{ with $level }}
+                  <span class="rounded-full bg-slate-100 px-4 py-2 text-sm text-slate-600">{{ . }}</span>
+                {{ end }}
+                {{ with $mediaType }}
+                  <span class="rounded-full bg-blue-50 px-4 py-2 text-sm text-blue-600">{{ . }}</span>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+
+          <section class="rounded-[8px] border border-slate-200 bg-white p-5 shadow-sm">
+            <div class="flex items-center justify-between gap-4">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.24em] text-blue-600">Preview</p>
+                <h2 class="mt-2 text-xl font-semibold text-slate-900">{{ if $link }}미디어{{ else if $components }}대표 컴포넌트{{ else }}미디어{{ end }}</h2>
+              </div>
+              {{ with .Parent }}
+                <a href="{{ .Permalink }}" class="rounded-full border border-[#cacdd6] px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-blue-600 hover:text-blue-600">목록으로</a>
+              {{ end }}
+            </div>
+
+            <div class="mt-5 overflow-hidden rounded-[8px] border border-slate-200 bg-slate-950">
+              {{ if $imageComponent }}
+                <img class="aspect-[4/5] w-full bg-white object-contain object-center" src="{{ $imageComponent }}" alt="{{ $title }}">
+              {{ else if $pdfComponent }}
+                <iframe class="aspect-[4/5] w-full bg-white" src="{{ $pdfComponent }}" frameborder="0"></iframe>
+              {{ else if $link }}
+                <iframe class="aspect-video w-full" src="{{ $link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              {{ else if $components }}
+                <div class="space-y-4 p-4">
+                  {{ range $components }}
+                    <div class="overflow-hidden rounded-[8px] border border-[#eeeff2] bg-white">
+                      <img class="h-auto w-full object-cover object-center" src="{{ . | absURL }}" alt="{{ $title }}">
+                    </div>
+                  {{ end }}
+                </div>
+              {{ else }}
+                <div class="flex aspect-video items-center justify-center bg-slate-100 text-sm text-slate-500">미디어가 없습니다</div>
+              {{ end }}
+            </div>
+
+            {{ with .Params.shotlist }}
+              <div class="mt-5 rounded-[8px] bg-slate-50 px-4 py-4 text-sm leading-7 text-slate-600">
+                {{ . }}
+              </div>
+            {{ end }}
+          </section>
+
+          {{ with $components }}
+            <section class="rounded-[8px] border border-slate-200 bg-white p-5 shadow-sm">
+              <div class="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-[0.24em] text-blue-600">Components</p>
+                  <h2 class="mt-2 text-xl font-semibold text-slate-900">구성 요소</h2>
+                </div>
+                <span class="rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600">{{ len $components }}개</span>
+              </div>
+              <div class="mt-5 space-y-4">
+                {{ range $index, $component := $components }}
+                  <figure class="overflow-hidden rounded-[8px] border border-slate-200 bg-slate-50">
+                    <div class="overflow-hidden bg-slate-100">
+                      <img class="h-auto w-full object-cover object-center" src="{{ $component | absURL }}" alt="{{ $title }} component {{ add $index 1 }}">
+                    </div>
+                    <figcaption class="border-t border-slate-200 px-4 py-3 text-sm text-slate-600">
+                      Component {{ add $index 1 }}
+                    </figcaption>
+                  </figure>
+                {{ end }}
+              </div>
+            </section>
+          {{ end }}
+
+          <aside class="space-y-4">
+            <div class="rounded-[8px] border border-slate-200 bg-white p-5 shadow-sm">
+              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-blue-600">Identity</p>
+              <h2 class="mt-2 text-xl font-semibold text-slate-900">기본 정보</h2>
+              <dl class="mt-4 divide-y divide-[#eeeff2] text-sm">
+                {{ if $refCode }}
+                  <div class="py-3">
+                    <dt class="text-slate-500">Reference code</dt>
+                    <dd class="mt-1 font-medium text-slate-900">{{ $refCode }}</dd>
+                  </div>
+                {{ end }}
+                <div class="py-3">
+                  <dt class="text-slate-500">Title</dt>
+                  <dd class="mt-1 font-medium text-slate-900">{{ $title }}</dd>
+                </div>
+                {{ with .Date }}
+                  <div class="py-3">
+                    <dt class="text-slate-500">Date</dt>
+                    <dd class="mt-1 font-medium text-slate-900">{{ . }}</dd>
+                  </div>
+                {{ end }}
+                {{ with $level }}
+                  <div class="py-3">
+                    <dt class="text-slate-500">Level of description</dt>
+                    <dd class="mt-1 font-medium text-slate-900">{{ . }}</dd>
+                  </div>
+                {{ end }}
+                {{ with $mediaType }}
+                  <div class="py-3">
+                    <dt class="text-slate-500">Media type</dt>
+                    <dd class="mt-1 font-medium text-slate-900">{{ . }}</dd>
+                  </div>
+                {{ end }}
+                {{ with $link }}
+                  <div class="py-3">
+                    <dt class="text-slate-500">Link</dt>
+                    <dd class="mt-1 break-all font-medium text-blue-600">
+                      <a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ . }}</a>
+                    </dd>
+                  </div>
+                {{ end }}
+              </dl>
+            </div>
+
+            <div class="rounded-[8px] border border-slate-200 bg-white p-5 shadow-sm">
+              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-blue-600">Context</p>
+              <h2 class="mt-2 text-xl font-semibold text-slate-900">연관 정보</h2>
+              <div class="mt-4 space-y-4 text-sm">
+                {{ with $tags }}
+                  <div>
+                    <p class="text-slate-500">Tags</p>
+                    <div class="mt-2 flex flex-wrap gap-2">
+                      {{ range . }}
+                        <span class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">{{ . }}</span>
+                      {{ end }}
+                    </div>
+                  </div>
+                {{ end }}
+
+                {{ with $creators }}
+                  <div>
+                    <p class="text-slate-500">Creators</p>
+                    <div class="mt-2 flex flex-wrap gap-2">
+                      {{ range . }}
+                        <span class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">{{ . }}</span>
+                      {{ end }}
+                    </div>
+                  </div>
+                {{ end }}
+
+                {{ with $subjects }}
+                  <div>
+                    <p class="text-slate-500">Subjects</p>
+                    <div class="mt-2 flex flex-wrap gap-2">
+                      {{ range . }}
+                        <span class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">{{ . }}</span>
+                      {{ end }}
+                    </div>
+                  </div>
+                {{ end }}
+
+                {{ with $sources }}
+                  <div>
+                    <p class="text-slate-500">Sources</p>
+                    <div class="mt-2 flex flex-wrap gap-2">
+                      {{ range . }}
+                        <span class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">{{ . }}</span>
+                      {{ end }}
+                    </div>
+                  </div>
+                {{ end }}
+
+                {{ with $venues }}
+                  <div>
+                    <p class="text-slate-500">Venues</p>
+                    <div class="mt-2 flex flex-wrap gap-2">
+                      {{ range . }}
+                        <span class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">{{ . }}</span>
+                      {{ end }}
+                    </div>
+                  </div>
+                {{ end }}
+              </div>
+            </div>
+          </aside>
+
+          <div class="rounded-[8px] border border-slate-200 bg-white p-5 shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-blue-600">Description</p>
+            <h2 class="mt-2 text-xl font-semibold text-slate-900">상세 정보</h2>
+            <dl class="mt-4 divide-y divide-[#eeeff2] text-sm">
+              <div class="py-3">
+                <dt class="text-slate-500">Title</dt>
+                <dd class="mt-1 font-medium text-slate-900">{{ $title }}</dd>
+              </div>
+              {{ with .Date }}
+                <div class="py-3">
+                  <dt class="text-slate-500">Date</dt>
+                  <dd class="mt-1 font-medium text-slate-900">{{ . }}</dd>
+                </div>
+              {{ end }}
+              {{ with $description }}
+                <div class="py-3">
+                  <dt class="text-slate-500">Description</dt>
+                  <dd class="mt-1 whitespace-pre-line font-medium leading-7 text-slate-900">{{ . }}</dd>
+                </div>
+              {{ end }}
+              {{ with .Params.note }}
+                <div class="py-3">
+                  <dt class="text-slate-500">Note</dt>
+                  <dd class="mt-1 whitespace-pre-line font-medium leading-7 text-slate-900">{{ . }}</dd>
+                </div>
+              {{ end }}
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 {{ end }}
+
 {{ define "footer" }}
   {{ partial "marketing/elements/footer-wide.html" . }}
 {{ end }}

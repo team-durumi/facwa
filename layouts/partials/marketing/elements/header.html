@@ -1,42 +1,127 @@
-<header class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-  <div class="container mx-auto flex flex-wrap px-5 py-4 flex-col md:flex-row items-center">
-    <a class="flex items-center text-gray-900 mb-4 md:mb-0" href="/">
-      {{ if .Site.Params.logo }}
-        <img class="max-w-xs" src="{{ .Site.Params.logo | absURL }}">
-      {{ else }}
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-blue-500 rounded-full" viewBox="0 0 24 24">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-        </svg>
-        <span class="ml-3 text-xl dark:text-gray-100">{{ .Site.Title }}</span>
-      {{ end }}
+{{ $ctx := . }}
+{{ $hideNav := false }}
+{{ if reflect.IsMap . }}
+  {{ with .Page }}{{ $ctx = . }}{{ end }}
+  {{ with .hideNav }}{{ $hideNav = . }}{{ end }}
+{{ end }}
+<header x-data="{ browseOverlayOpen: false }" class="facwa-site-header sticky top-0 z-50 border-b border-slate-200 bg-white text-slate-900">
+  <div class="container flex items-center justify-between px-5 py-5">
+    <a class="facwa-header-logo" href="/" aria-label="{{ $ctx.Site.Title }}">
+      ArchiveJ
     </a>
-    <nav class="md:ml-auto md:mr-auto flex flex-wrap justify-items-start text-md lg:text-lg z-40">
-      {{ range site.Menus.main }}
-        {{ if .HasChildren }}
-          <div @click.away="open = false" class="relative" x-data="{ open: false }">
-            <button @click="open = !open" class="mr-7 hover:border-b-2 hover:border-blue-600 hover:text-blue-600">
-              <span>{{ .Name }}</span>
-              <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-            </button>
-            <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-36">
-              <div class="px-2 py-2 bg-white rounded-md shadow dark:bg-gray-800 dark:border-1 dark:border-white">
-                {{ range .Children }}
-                  <a class="block px-2 py-2 mt-2 text-sm text-center font-semibold bg-transparent rounded-lg md:mt-0 dark:text-blue-600 hover:text-blue-600 hover:bg-gray-200" href="{{ .URL | absURL }}">{{ .Name }}</a>
-                {{ end }}
+
+    {{ if not $hideNav }}
+      <nav class="hidden items-center gap-2 lg:flex">
+        {{ range site.Menus.main }}
+          {{ if .HasChildren }}
+            <div @click.away="open = false" class="relative" x-data="{ open: false }">
+              <button @click="open = !open" class="facwa-nav-link px-4 py-3 text-[16px] font-medium text-slate-700 transition hover:text-blue-600" :class="{ 'text-blue-600' : open }">
+                <span>{{ .Name }}</span>
+                <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="ml-1 inline h-4 w-4 transition-transform duration-200"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+              </button>
+              <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute left-1/2 top-full z-50 mt-2 w-48 -translate-x-1/2">
+                <div class="rounded-xl border border-slate-200 bg-white p-2 shadow-lg">
+                  {{ range .Children }}
+                    <a class="facwa-nav-link block rounded-lg px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-blue-600" href="{{ .URL | absURL }}">{{ .Name }}</a>
+                  {{ end }}
+                </div>
               </div>
             </div>
-          </div>  
-        {{ else }}
-          <a class="mr-7 hover:border-b-2 hover:border-blue-500 hover:text-blue-500 " href="{{ .URL | absURL }}">{{ .Name }}</a>
+          {{ else }}
+            <a class="facwa-nav-link px-4 py-3 text-[16px] font-medium text-slate-700 transition hover:text-blue-600" href="{{ .URL | absURL }}">{{ .Name }}</a>
+          {{ end }}
+        {{ end }}
+      </nav>
+    {{ end }}
+
+    <div class="flex items-center gap-2">
+      {{ $searchURL := "/search/" }}
+      {{ $searchLabel := "검색" }}
+      {{ with site.Menus.button }}
+        {{ with index . 0 }}
+          {{ with .URL }}{{ $searchURL = . }}{{ end }}
+          {{ with .Name }}{{ $searchLabel = . }}{{ end }}
         {{ end }}
       {{ end }}
-    </nav>
-    <ul class="mt-4 sm:mt-1">
-      {{ range site.Menus.button }}
-        <li class="inline-block">
-          <a class="block px-6 py-2 bg-white border-blue-600 dark:bg-black dark:border-blue-500 border box-border rounded-full text-md lg:text-lg text-blue-600 dark:text-blue-500 strong" href="{{ .URL }}">{{ .Name }}</a>
-        </li>
-      {{ end }}
-    </ul>
+      <a class="facwa-header-search hidden items-center rounded-full border border-blue-600 px-5 py-2 text-[15px] font-medium text-blue-600 transition hover:bg-blue-50 sm:inline-flex" href="{{ $searchURL }}">{{ $searchLabel }}</a>
+      <button type="button" @click="browseOverlayOpen = true" class="facwa-header-browse inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2 text-[15px] font-medium text-white transition hover:bg-blue-700" aria-label="탐색 열기">
+        <span>탐색</span>
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div x-cloak x-show="browseOverlayOpen" x-transition.opacity @keydown.escape.window="browseOverlayOpen = false" class="facwa-browse-overlay fixed inset-0 z-50 w-full overflow-y-scroll bg-white text-slate-900">
+    <div class="container min-h-screen px-5 py-8">
+      <div class="flex items-start justify-between gap-6 border-b border-slate-200 pb-6">
+        <div>
+          <p class="text-sm font-medium text-blue-600">Browse Archive</p>
+          <h2 class="mt-2 text-4xl font-semibold leading-tight tracking-normal text-slate-950">탐색 경로</h2>
+          <p class="mt-3 max-w-2xl text-base leading-7 text-slate-500">컬렉션 경로를 따라 자료 위치를 확인하거나 검색 페이지로 이동합니다.</p>
+        </div>
+        <button type="button" @click="browseOverlayOpen = false" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition hover:border-blue-600 hover:text-blue-600" aria-label="탐색 닫기">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="grid gap-8 py-8 lg:grid-cols-[30%_minmax(0,70%)]">
+        <aside class="space-y-3">
+          <a class="flex items-center justify-between rounded-[8px] border border-slate-200 bg-slate-50 px-5 py-4 text-base font-medium text-slate-900 transition hover:border-blue-600 hover:text-blue-600" href="/items/">
+            <span>전체 탐색</span>
+            <span aria-hidden="true">/items</span>
+          </a>
+          <a class="flex items-center justify-between rounded-[8px] border border-slate-200 bg-slate-50 px-5 py-4 text-base font-medium text-slate-900 transition hover:border-blue-600 hover:text-blue-600" href="{{ $searchURL }}">
+            <span>{{ $searchLabel }}</span>
+            <span aria-hidden="true">catalog</span>
+          </a>
+        </aside>
+
+        <nav class="rounded-[8px] border border-slate-200 bg-white">
+          {{ with $ctx.Site.GetPage "section" "items" }}
+            {{ $child_pages := union .Sections .Pages }}
+            {{ range $child_pages.ByWeight.ByTitle }}
+              <div class="border-b border-slate-200 last:border-b-0">
+                <a href="{{ .Permalink }}" class="block px-5 py-5 transition hover:bg-[#f5f7fb] hover:text-blue-600">
+                  <span class="block text-xl font-semibold text-slate-950">{{ .Title }}</span>
+                  {{ with .Params.level_of_description }}
+                    <span class="mt-1 block text-sm text-slate-500">{{ . }}</span>
+                  {{ end }}
+                </a>
+                {{ if or .Sections .Pages }}
+                  <div class="px-5 pb-5">
+                    {{ partial "roll/browse/aside-recursive.html" . }}
+                  </div>
+                {{ end }}
+              </div>
+            {{ end }}
+          {{ else }}
+            {{ with $ctx.Site.GetPage "/" }}
+              {{ range where .Sections.ByTitle "Type" "items" }}
+                {{ $child_pages := union .Sections .Pages }}
+              {{ range $child_pages.ByWeight.ByTitle }}
+                <div class="border-b border-slate-200 last:border-b-0">
+                  <a href="{{ .Permalink }}" class="block px-5 py-5 transition hover:bg-[#f5f7fb] hover:text-blue-600">
+                    <span class="block text-xl font-semibold text-slate-950">{{ .Title }}</span>
+                    {{ with .Params.level_of_description }}
+                      <span class="mt-1 block text-sm text-slate-500">{{ . }}</span>
+                    {{ end }}
+                  </a>
+                  {{ if or .Sections .Pages }}
+                    <div class="px-5 pb-5">
+                      {{ partial "roll/browse/aside-recursive.html" . }}
+                    </div>
+                  {{ end }}
+                </div>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+          {{ end }}
+        </nav>
+      </div>
+    </div>
   </div>
 </header>

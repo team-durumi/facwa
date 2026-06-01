@@ -13,7 +13,7 @@ license:
   createor_of_work: TCG
   link_to_creator_profile: https://textconsulting.io
   year_of_creation: 2026
-  
+
 footer:
   logo: /img/peace-worlding-film-archives-logo.png
   대표전화: 02-0000-0000
@@ -23,12 +23,27 @@ footer:
   url: https://textconsulting.io
   caption: Github
   github: http://github.com/team-durumi
-  fb: 
-  tw: 
-  instagram: 
+  fb:
+  tw:
+  instagram:
   linkedin:
 
 cfImagePrefix: 'https://durumi.io/cdn-cgi/image'
 cfImageStyles:
   thumb: 'fit=scale-down,width=300'
   full: 'fit=scale-down,width=1920'
+
+themeColor:
+  primary: '#245ae4'
+  primaryDark: '#184aca'
+  primarySoft: '#f0f4fd'
+  secondary: '#d3defa'
+  surface: '#ffffff'
+  surfaceSoft: '#fbfbfb'
+  background: '#f1f2f3'
+  text: '#191a1e'
+  textMuted: '#6a7389'
+  textSubtle: '#3d404a'
+  border: '#cacdd6'
+  footer: '#2a3141'
+  footerText: '#cacdd6'

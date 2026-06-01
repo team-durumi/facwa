@@ -2,7 +2,7 @@
 lastmod: 2023-12-23
 title: R1 한국전쟁
 weight: 1
-type: page
+type: items
 level_of_description: Record Group(레코드그룹)
 components: 
   - "/img/R1-013_1.jpg"

@@ -2,7 +2,7 @@
 lastmod: 2023-06-11
 title: S3 학살
 weight: 3
-type: page
+type: items
 level_of_description: Seires(시리즈)
 components: 
   - "/img/R1-007.jpg"

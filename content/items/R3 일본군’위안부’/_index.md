@@ -2,7 +2,7 @@
 lastmod: 2021-11-12
 title: R3 일본군’위안부’
 weight: 3
-type: page
+type: items
 level_of_description: Record Group(레코드그룹)
 components: 
   - "/img/comfortwomen-01.png"

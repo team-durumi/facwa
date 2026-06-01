@@ -2,7 +2,7 @@
 lastmod: 2023-06-01
 title: S1 판문점
 weight: 2
-type: page
+type: items
 level_of_description: Seires(시리즈)
 components: 
   - "/img/R2-Scanned000016.jpg"

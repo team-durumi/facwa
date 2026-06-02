@@ -1,5 +1,18 @@
 {{- $.Scratch.Add "index" slice -}}
 {{- range site.RegularPages -}}
-    {{- $.Scratch.Add "index" (dict "title" .Title "description" .Params.description "components" .Params.components "tags" .Params.tags "subjects" .Params.subjects "creators" .Params.creators "venues" .Params.venues "sources" .Params.sources "media_type" .Params.media.type "date" .Params.date "level__rg" .Params.level__rg "level__series" .Params.level__series "contents" .Plain "permalink" .Permalink) -}}
+    {{- $media := .Params.media | default .Params.Media -}}
+    {{- $components := .Params.components | default .Params.Components -}}
+    {{- $mediaType := .Params.media_type | default .Params.Media_type -}}
+    {{- $thumbnail := "" -}}
+    {{- if $media -}}
+      {{- with index $media "thumbnail" }}{{- $thumbnail = . -}}{{- end -}}
+      {{- if and (not $mediaType) (index $media "type") -}}
+        {{- $mediaType = index $media "type" -}}
+      {{- end -}}
+      {{- if and (not $components) (index $media "components") -}}
+        {{- $components = index $media "components" -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $.Scratch.Add "index" (dict "title" .Title "description" .Params.description "components" $components "thumbnail" $thumbnail "tags" .Params.tags "subjects" .Params.subjects "creators" .Params.creators "venues" .Params.venues "sources" .Params.sources "media_type" $mediaType "date" .Params.date "level__rg" .Params.level__rg "level__series" .Params.level__series "contents" .Plain "permalink" .Permalink) -}}
 {{- end -}}
 {{- $.Scratch.Get "index" | jsonify -}}

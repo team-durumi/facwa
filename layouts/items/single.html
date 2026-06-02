@@ -7,14 +7,23 @@
   {{ $description := .Params.description | default .Params.Description }}
   {{ $level := .Params.level_of_description | default .Params.Level_of_description }}
   {{ $mediaType := .Params.media_type | default .Params.Media_type }}
+  {{ $components := .Params.components | default .Params.Components }}
   {{ $link := .Params.link | default .Params.Link }}
   {{ $media := .Params.media | default .Params.Media }}
+  {{ $mediaEmbedURL := "" }}
+  {{ $mediaThumbnail := "" }}
   {{ if and (not $mediaType) $media }}
     {{ with index $media "type" }}{{ $mediaType = . }}{{ end }}
   {{ end }}
-  {{ $components := .Params.components | default .Params.Components }}
-  {{ if and (not $components) $media }}
-    {{ with index $media "components" }}{{ $components = . }}{{ end }}
+  {{ if $media }}
+    {{ with index $media "embed_url" }}{{ $mediaEmbedURL = . }}{{ end }}
+    {{ if eq $mediaEmbedURL "" }}
+      {{ with index $media "embeded_url" }}{{ $mediaEmbedURL = . }}{{ end }}
+    {{ end }}
+    {{ with index $media "thumbnail" }}{{ $mediaThumbnail = . }}{{ end }}
+    {{ if and (not $components) (index $media "components") }}
+      {{ with index $media "components" }}{{ $components = . }}{{ end }}
+    {{ end }}
   {{ end }}
   {{ $pdfComponent := "" }}
   {{ $imageComponent := "" }}
@@ -26,6 +35,10 @@
       {{ $imageComponent = . }}
     {{ end }}
   {{ end }}
+  {{ if and (eq $imageComponent "") $mediaThumbnail }}
+    {{ $imageComponent = $mediaThumbnail }}
+  {{ end }}
+  {{ $previewLink := $mediaEmbedURL | default $link }}
   {{ $tags := .Params.tags | default .Params.Tags }}
   {{ $creators := .Params.creators | default .Params.Creators }}
   {{ $subjects := .Params.subjects | default .Params.Subjects }}
@@ -72,20 +85,28 @@
             <div class="flex items-center justify-between gap-4">
               <div>
                 <p class="text-xs font-semibold uppercase tracking-[0.24em] text-blue-600">Preview</p>
-                <h2 class="mt-2 text-xl font-semibold text-slate-900">{{ if $link }}미디어{{ else if $components }}대표 컴포넌트{{ else }}미디어{{ end }}</h2>
+                <h2 class="mt-2 text-xl font-semibold text-slate-900">{{ if $previewLink }}미디어{{ else if $components }}대표 컴포넌트{{ else }}미디어{{ end }}</h2>
               </div>
               {{ with .Parent }}
                 <a href="{{ .Permalink }}" class="rounded-full border border-[#cacdd6] px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-blue-600 hover:text-blue-600">목록으로</a>
               {{ end }}
             </div>
 
-            <div class="mt-5 overflow-hidden rounded-[8px] border border-slate-200 bg-slate-950">
-              {{ if $imageComponent }}
+            <div class="facwa-item-media mt-5 rounded-[8px] border border-slate-200 bg-slate-950">
+              {{ if $previewLink }}
+                <div class="facwa-item-media__frame">
+                  <iframe
+                    class="facwa-item-media__iframe"
+                    src="{{ $previewLink }}"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              {{ else if $imageComponent }}
                 <img class="aspect-[4/5] w-full bg-white object-contain object-center" src="{{ $imageComponent }}" alt="{{ $title }}">
               {{ else if $pdfComponent }}
                 <iframe class="aspect-[4/5] w-full bg-white" src="{{ $pdfComponent }}" frameborder="0"></iframe>
-              {{ else if $link }}
-                <iframe class="aspect-video w-full" src="{{ $link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               {{ else if $components }}
                 <div class="space-y-4 p-4">
                   {{ range $components }}
@@ -105,30 +126,6 @@
               </div>
             {{ end }}
           </section>
-
-          {{ with $components }}
-            <section class="rounded-[8px] border border-slate-200 bg-white p-5 shadow-sm">
-              <div class="flex flex-wrap items-center justify-between gap-4">
-                <div>
-                  <p class="text-xs font-semibold uppercase tracking-[0.24em] text-blue-600">Components</p>
-                  <h2 class="mt-2 text-xl font-semibold text-slate-900">구성 요소</h2>
-                </div>
-                <span class="rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600">{{ len $components }}개</span>
-              </div>
-              <div class="mt-5 space-y-4">
-                {{ range $index, $component := $components }}
-                  <figure class="overflow-hidden rounded-[8px] border border-slate-200 bg-slate-50">
-                    <div class="overflow-hidden bg-slate-100">
-                      <img class="h-auto w-full object-cover object-center" src="{{ $component | absURL }}" alt="{{ $title }} component {{ add $index 1 }}">
-                    </div>
-                    <figcaption class="border-t border-slate-200 px-4 py-3 text-sm text-slate-600">
-                      Component {{ add $index 1 }}
-                    </figcaption>
-                  </figure>
-                {{ end }}
-              </div>
-            </section>
-          {{ end }}
 
           <aside class="space-y-4">
             <div class="rounded-[8px] border border-slate-200 bg-white p-5 shadow-sm">
@@ -163,7 +160,7 @@
                     <dd class="mt-1 font-medium text-slate-900">{{ . }}</dd>
                   </div>
                 {{ end }}
-                {{ with $link }}
+                {{ with $previewLink }}
                   <div class="py-3">
                     <dt class="text-slate-500">Link</dt>
                     <dd class="mt-1 break-all font-medium text-blue-600">

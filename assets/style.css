@@ -326,6 +326,42 @@ html {
   background: #fff;
 }
 
+.facwa-item-media {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-gutter: stable;
+}
+
+.facwa-item-media__frame {
+  position: relative;
+  width: 100%;
+  min-width: 800px;
+  padding-top: 75%;
+  background: #000;
+}
+
+.facwa-item-media__iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .facwa-item-media {
+    overflow: hidden;
+  }
+
+  .facwa-item-media__frame {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
 .facwa-section {
   background: var(--theme-surface);
   color: var(--theme-text);

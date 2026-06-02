@@ -39,11 +39,6 @@
     {{ $imageComponent = $mediaThumbnail }}
   {{ end }}
   {{ $previewLink := $mediaEmbedURL | default $link }}
-  {{ $tags := .Params.tags | default .Params.Tags }}
-  {{ $creators := .Params.creators | default .Params.Creators }}
-  {{ $subjects := .Params.subjects | default .Params.Subjects }}
-  {{ $sources := .Params.sources | default .Params.Sources }}
-  {{ $venues := .Params.venues | default .Params.Venues }}
   {{ $refCode := "" }}
   {{ if and .Params.rg .Params.series .Params.file_number .Params.local_identifier }}
     {{ $refCode = printf "%v-%v-%v-%v" .Params.rg .Params.series .Params.file_number .Params.local_identifier }}
@@ -175,60 +170,11 @@
               <p class="text-xs font-semibold uppercase tracking-[0.24em] text-blue-600">Context</p>
               <h2 class="mt-2 text-xl font-semibold text-slate-900">연관 정보</h2>
               <div class="mt-4 space-y-4 text-sm">
-                {{ with $tags }}
-                  <div>
-                    <p class="text-slate-500">Tags</p>
-                    <div class="mt-2 flex flex-wrap gap-2">
-                      {{ range . }}
-                        <span class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">{{ . }}</span>
-                      {{ end }}
-                    </div>
-                  </div>
-                {{ end }}
-
-                {{ with $creators }}
-                  <div>
-                    <p class="text-slate-500">Creators</p>
-                    <div class="mt-2 flex flex-wrap gap-2">
-                      {{ range . }}
-                        <span class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">{{ . }}</span>
-                      {{ end }}
-                    </div>
-                  </div>
-                {{ end }}
-
-                {{ with $subjects }}
-                  <div>
-                    <p class="text-slate-500">Subjects</p>
-                    <div class="mt-2 flex flex-wrap gap-2">
-                      {{ range . }}
-                        <span class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">{{ . }}</span>
-                      {{ end }}
-                    </div>
-                  </div>
-                {{ end }}
-
-                {{ with $sources }}
-                  <div>
-                    <p class="text-slate-500">Sources</p>
-                    <div class="mt-2 flex flex-wrap gap-2">
-                      {{ range . }}
-                        <span class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">{{ . }}</span>
-                      {{ end }}
-                    </div>
-                  </div>
-                {{ end }}
-
-                {{ with $venues }}
-                  <div>
-                    <p class="text-slate-500">Venues</p>
-                    <div class="mt-2 flex flex-wrap gap-2">
-                      {{ range . }}
-                        <span class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">{{ . }}</span>
-                      {{ end }}
-                    </div>
-                  </div>
-                {{ end }}
+                {{ partial "roll/browse/taxonomy-chip-list.html" (dict "page" . "taxonomy" "tags" "label" "Tags") }}
+                {{ partial "roll/browse/taxonomy-chip-list.html" (dict "page" . "taxonomy" "creators" "label" "Creators") }}
+                {{ partial "roll/browse/taxonomy-chip-list.html" (dict "page" . "taxonomy" "subjects" "label" "Subjects") }}
+                {{ partial "roll/browse/taxonomy-chip-list.html" (dict "page" . "taxonomy" "sources" "label" "Sources") }}
+                {{ partial "roll/browse/taxonomy-chip-list.html" (dict "page" . "taxonomy" "venues" "label" "Venues") }}
               </div>
             </div>
           </aside>
